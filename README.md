@@ -1,12 +1,65 @@
-# Password-generator
-Password generator using dictonaries coded in C
+**Password Generator README**
+Year 1 Coursework
+---
 
-This program generates a random password by choosing a random combination of words from several files. The main file (ETR_Password.c) includes a set of functions from the second file (Functions.c), which handles the file input/output and generates random numbers.
+**Introduction:**
 
-The code begins by defining the required functions, including a function to animate printing and generate random numbers, and several functions that read from files of different word lengths (4, 5, 6, and 7 letters). The read_from_* functions return special address that points to a memory space that contains a random line from the corresponding file.
+This is a simple password generator program written in C. It generates a password by selecting random words from files containing words of varying lengths (4 to 7 characters). The user is prompted to specify the number of words to include in the password, and the program generates the password accordingly.
 
-The Random_file function randomly selects a file (4, 5, 6, or 7) and returns a pointer to a buffer containing a random word from that file. The Correct_Parameter function checks the user input for the number of words and ensures that it is within the required range.
+---
 
-Finally, in the main function, the program calls the Intro function to print an ASII art, then calls the Generate_Password function to generate the password. 
+**Functionality:**
 
-The computer system being used is running the Linux Ubuntu operating system. The IDE being used is Visual Studio Code. To compile the code, the GCC compiler is being used through the terminal.
+1. **Intro():**
+   - Displays an introductory message with an animated effect.
+
+2. **number_generator():**
+   - Generates a random number between 1 and 500.
+
+3. **read_from_4(), read_from_5(), read_from_6(), read_from_7():**
+   - Reads a random line from files named "4", "5", "6", and "7" respectively.
+   - Returns the line as a dynamically allocated string.
+
+4. **Random_file():**
+   - Chooses a random file among the four mentioned above and returns a line from that file.
+
+5. **Correct_Parameter():**
+   - Prompts the user for the number of words for the password.
+   - Checks if the input is within the valid range (3 to 4).
+
+6. **Generate_Password():**
+   - Generates a password by calling Random_file() to get words from random files.
+   - Prints the generated password.
+
+7. **main():**
+   - Calls Intro() to display the introductory message.
+   - Calls Correct_Parameter() to prompt the user for the number of words (commented out by default).
+   - Calls Generate_Password() to generate the password.
+
+---
+
+**Usage:**
+
+1. Clone or download the source code files to your local machine.
+
+2. Compile the code using a C compiler. For example, you can use `gcc`:
+
+   ```bash
+   gcc password_generator.c -o password_generator
+   ```
+
+3. Run the compiled executable:
+
+   ```bash
+   ./password_generator
+   ```
+
+4. Follow the on-screen instructions to generate a password.
+
+---
+
+**Notes:**
+
+- Ensure that the files "4", "5", "6", and "7" exist and contain words for the program to read.
+- The strengthen() function is incomplete and not utilized in the current version of the program.
+- There might be issues with file handling in certain functions. Review and fix the fclose() statements if needed.
